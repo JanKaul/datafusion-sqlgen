@@ -1,0 +1,6 @@
+[submodule "datafusion-sqlgen/arrow-testing"]
+	path = datafusion-sqlgen/arrow-testing
+	url = https://github.com/apache/arrow-testing.git
+[submodule "datafusion-sqlgen/parquet-testing"]
+	path = datafusion-sqlgen/parquet-testing
+	url = https://github.com/apache/parquet-testing.git

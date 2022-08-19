@@ -1,0 +1,17 @@
+[package]
+name = "datafusion-sqlgen"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+datafusion-sql = "10.0.0"
+datafusion-expr = "10.0.0"
+datafusion-common = "10.0.0"
+arrow = "18.0.0"
+sqlgenerator = { path = "../sqlgenerator" }
+
+[dev-dependencies]
+datafusion = "10.0.0"
+tokio = "1.20.1"
