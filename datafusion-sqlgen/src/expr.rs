@@ -12,7 +12,7 @@ use datafusion_sql::sqlparser::ast::{Function, Ident};
 use datafusion_sql::sqlparser::parser::ParserError;
 
 impl RelToSql {
-    pub fn logical_expr_to_sql_expr(&self, expr: &Expr) -> Result<SQLExpr> {
+    pub(crate) fn logical_expr_to_sql_expr(&self, expr: &Expr) -> Result<SQLExpr> {
         match expr {
             Expr::Column(column) => match &column.relation {
                 Some(table) => Ok(SQLExpr::CompoundIdentifier(vec![
@@ -213,6 +213,7 @@ fn binary_operator_to_sql(op: &Operator) -> Result<BinaryOperator> {
     }
 }
 
+#[inline]
 fn datatype_to_sql(data_type: &DataType) -> Result<SQLDataType> {
     match data_type {
         DataType::Boolean => Ok(SQLDataType::Boolean),

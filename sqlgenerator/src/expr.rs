@@ -7,7 +7,7 @@ use datafusion_sql::sqlparser::{
 };
 use itertools::Itertools;
 
-pub fn generate_expr(expr: &Expr) -> Result<Vec<Token>> {
+pub(crate) fn generate_expr(expr: &Expr) -> Result<Vec<Token>> {
     match expr {
         Expr::Identifier(ident) => Ok(vec![Token::Word(Word {
             value: ident.value.clone(),
@@ -262,6 +262,7 @@ fn generate_op(op: &BinaryOperator) -> Result<Token> {
     }
 }
 
+#[inline]
 fn generate_datatype(data_type: &SQLDataType) -> Result<Vec<Token>> {
     match data_type {
         SQLDataType::TinyInt(_) => Ok(vec![Token::Word(Word {
